@@ -22,7 +22,7 @@
   }
   
   .site-logo {
-    width: 120px; /* Adjust logo size as needed */
+    width: 80px; /* Adjust logo size as needed */
     height: auto;
   }
   
@@ -71,7 +71,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background: linear-gradient(135deg, #1565c0 50%, #64b5f6 50%); /* Blue gradient */
+    background: linear-gradient(135deg, #1565c0 50%, #64b5f6 50%);
     color: #fff;
     padding: 3rem 2rem;
     flex-wrap: wrap;
@@ -98,7 +98,7 @@
   }
   
   .hero-btn {
-    background-color: #0d47a1; /* Deeper Blue CTA button */
+    background-color: #0d47a1;
     color: #fff;
     padding: 0.75rem 1.5rem;
     text-decoration: none;
@@ -129,7 +129,6 @@
     padding: 2rem;
     max-width: 1000px;
     border-radius: 6px;
-    /* Subtle box shadow for layering */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   
@@ -154,10 +153,10 @@
     color: #1565c0; /* Blue headings */
   }
   
-  /* Make the About Section Scrollable (50vh) */
+  /* Make About Section Scrollable (50vh) */
   .about-section {
-    max-height: 50vh;  /* Approx half the viewport height */
-    overflow-y: auto;  /* Scroll inside this section if the text exceeds 50vh */
+    max-height: 50vh;
+    overflow-y: auto;
   }
   
   /* Projects Section - Card Layout */
@@ -199,7 +198,7 @@
   
   .project-link {
     display: inline-block;
-    background-color: #1565c0; 
+    background-color: #1565c0;
     color: #ffffff;
     padding: 0.75rem 1.5rem;
     border-radius: 4px;
@@ -239,9 +238,9 @@
   }
   
   .progress {
-    background-color: #1565c0; /* Blue skill bar */
+    background-color: #1565c0;
     height: 8px;
-    width: 0%; /* JS will animate this */
+    width: 0%;
     border-radius: 4px;
     transition: width 1s ease-in-out;
   }
@@ -277,7 +276,7 @@
     color: #0d47a1;
   }
   
-  /* Contact & Resume Section */
+  /* Contact & Resume Sections */
   .contact-section ul {
     list-style-type: none;
     margin: 0;
@@ -290,7 +289,7 @@
   
   .resume-section a {
     display: inline-block;
-    background-color: #1565c0; 
+    background-color: #1565c0;
     color: #ffffff;
     padding: 0.75rem 1.5rem;
     border-radius: 4px;
@@ -307,7 +306,7 @@
   footer {
     text-align: center;
     padding: 1rem;
-    background-color: #1565c0; 
+    background-color: #1565c0;
     color: #ffffff;
     margin-top: 2rem;
   }
@@ -317,14 +316,21 @@
   }
   
   .social-icons a {
-    color: #ffffff;
+    color: #000; /* We'll override so icons match your branding if desired */
     margin: 0 0.5rem;
     font-size: 1.2rem;
-    transition: color 0.3s;
+    transition: transform 0.3s;
+    background: #fff;     /* White circle behind icon */
+    border-radius: 50%; 
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;    /* vertically center icon */
   }
   
   .social-icons a:hover {
-    color: #ffe082;
+    transform: scale(1.1);
   }
   
   .heart {
@@ -364,14 +370,18 @@
     }
   
     .mobile-menu {
-      display: none; /* Shown/hidden via JS */
+      display: none;
       right: 1rem;
       left: 1rem;
     }
   
-    /* Adjust about-section height on mobile if needed */
     .about-section {
-      max-height: 40vh; /* or keep 50vh; your preference */
+      max-height: 40vh; /* or keep 50vh; your preference for mobile */
+    }
+  
+    /* Footer icons mobile style (optional) */
+    .social-icons a {
+      margin: 0 0.25rem;
     }
   }
   
