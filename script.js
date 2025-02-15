@@ -16,10 +16,10 @@ const progressBars = document.querySelectorAll('.progress');
 function animateProgressBars() {
   progressBars.forEach((bar) => {
     const rect = bar.getBoundingClientRect();
-    const isVisible = (
+    const isVisible =
       rect.top >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-    );
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+
     if (isVisible) {
       bar.style.width = bar.getAttribute('data-skill-percent');
     }

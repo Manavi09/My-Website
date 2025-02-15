@@ -21,11 +21,12 @@
     position: relative;
   }
   
-  .site-title {
-    color: #ffffff;
-    font-weight: 400;
+  .site-logo {
+    width: 120px; /* Adjust logo size as needed */
+    height: auto;
   }
   
+  /* Right Nav Links */
   .nav-right a {
     color: #ffffff;
     text-decoration: none;
@@ -39,6 +40,7 @@
     color: #ffe082; /* Light accent on hover */
   }
   
+  /* Mobile Toggle */
   .nav-toggle {
     display: none;
     color: #ffffff;
@@ -150,6 +152,12 @@
     margin-bottom: 1.5rem;
     font-size: 2rem;
     color: #1565c0; /* Blue headings */
+  }
+  
+  /* Make the About Section Scrollable (50vh) */
+  .about-section {
+    max-height: 50vh;  /* Approx half the viewport height */
+    overflow-y: auto;  /* Scroll inside this section if the text exceeds 50vh */
   }
   
   /* Projects Section - Card Layout */
@@ -359,6 +367,11 @@
       display: none; /* Shown/hidden via JS */
       right: 1rem;
       left: 1rem;
+    }
+  
+    /* Adjust about-section height on mobile if needed */
+    .about-section {
+      max-height: 40vh; /* or keep 50vh; your preference */
     }
   }
   
