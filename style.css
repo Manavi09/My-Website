@@ -8,19 +8,20 @@
   body {
     font-family: 'Roboto', sans-serif;
     color: #333;
-    background: #f5f5f5;
+    background: #ffffff; /* White background */
   }
   
   /* Navigation Bar */
-  nav {
+  .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #2c2f33;
+    background-color: #1565c0; /* Blue nav background */
     padding: 1rem 2rem;
+    position: relative;
   }
   
-  nav h1 {
+  .site-title {
     color: #ffffff;
     font-weight: 400;
   }
@@ -31,10 +32,36 @@
     margin-left: 1rem;
     font-size: 1rem;
     font-weight: 300;
+    transition: color 0.3s;
   }
   
   .nav-right a:hover {
-    text-decoration: underline;
+    color: #ffe082; /* Light accent on hover */
+  }
+  
+  .nav-toggle {
+    display: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  /* Mobile Menu (hidden by default) */
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #1565c0; 
+    position: absolute;
+    top: 60px;
+    right: 2rem;
+    padding: 1rem;
+    border-radius: 4px;
+  }
+  
+  .mobile-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0.5rem 0;
   }
   
   /* Hero Section */
@@ -42,13 +69,15 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background: linear-gradient(135deg, #2c2f33 50%, #563d7c 50%);
+    background: linear-gradient(135deg, #1565c0 50%, #64b5f6 50%); /* Blue gradient */
     color: #fff;
     padding: 3rem 2rem;
+    flex-wrap: wrap;
   }
   
   .hero-content {
     max-width: 500px;
+    margin-bottom: 1rem;
   }
   
   .hero-content h2 {
@@ -67,16 +96,17 @@
   }
   
   .hero-btn {
-    background-color: #6c5ce7;
+    background-color: #0d47a1; /* Deeper Blue CTA button */
     color: #fff;
     padding: 0.75rem 1.5rem;
     text-decoration: none;
     border-radius: 4px;
     font-weight: 500;
+    transition: background-color 0.3s;
   }
   
   .hero-btn:hover {
-    background-color: #4b32a6;
+    background-color: #0a3575;
   }
   
   .hero-image img {
@@ -85,35 +115,41 @@
     border: 4px solid #ffffff;
   }
   
-  /* About / Projects / Contact / Resume Sections */
-  .about-section, .projects-section, .contact-section, .resume-section {
+  /* Sections */
+  .about-section,
+  .projects-section,
+  .skills-section,
+  .experience-section,
+  .contact-section,
+  .resume-section {
     background-color: #ffffff;
     margin: 2rem auto;
     padding: 2rem;
     max-width: 1000px;
     border-radius: 6px;
+    /* Subtle box shadow for layering */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .about-section h2,
-  .projects-section h2,
-  .contact-section h2,
-  .resume-section h2 {
-    margin-bottom: 1.5rem;
-    font-size: 2rem;
   }
   
   .about-section p,
   .projects-section p,
+  .skills-section p,
+  .experience-section p,
   .contact-section p,
   .resume-section p {
     margin-bottom: 1rem;
     line-height: 1.6;
   }
   
-  .about-section ul, .projects-section ul {
-    margin-left: 1.5rem;
-    margin-bottom: 1rem;
+  .about-section h2,
+  .projects-section h2,
+  .skills-section h2,
+  .experience-section h2,
+  .contact-section h2,
+  .resume-section h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #1565c0; /* Blue headings */
   }
   
   /* Projects Section - Card Layout */
@@ -125,13 +161,15 @@
   
   .card {
     background-color: #fff;
-    flex: 1 1 calc(100% - 2rem);
-    /* For multiple cards in a row, you could do something like: 
-       flex: 1 1 calc(48% - 2rem); 
-       but for demonstration, let's keep it full width if you only have one project. */
+    flex: 1 1 calc(31% - 2rem);
     padding: 1.5rem;
     border-radius: 6px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+  
+  .card:hover {
+    transform: scale(1.03);
   }
   
   .card img {
@@ -142,40 +180,93 @@
   }
   
   .card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: #0d47a1;
   }
   
   .card .overview {
     margin-bottom: 1rem;
   }
   
-  .card .details {
-    margin-bottom: 1rem;
-  }
-  
-  .card .details ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0.5rem 0;
-  }
-  
-  .card .details li {
-    margin-bottom: 0.5rem;
-  }
-  
   .project-link {
     display: inline-block;
-    background-color: #2c2f33;
+    background-color: #1565c0; 
     color: #ffffff;
     padding: 0.75rem 1.5rem;
     border-radius: 4px;
     text-decoration: none;
     font-weight: 500;
+    transition: background-color 0.3s;
   }
   
   .project-link:hover {
-    background-color: #212428;
+    background-color: #0a3575;
+  }
+  
+  /* Skills Section */
+  .skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .skill-box {
+    margin-bottom: 0.5rem;
+  }
+  
+  .skill-name {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: #0d47a1;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .progress {
+    background-color: #1565c0; /* Blue skill bar */
+    height: 8px;
+    width: 0%; /* JS will animate this */
+    border-radius: 4px;
+    transition: width 1s ease-in-out;
+  }
+  
+  /* Experience Section */
+  .experience-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .education-column, .job-column {
+    flex: 1 1 calc(50% - 2rem);
+  }
+  
+  .experience-card {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+  }
+  
+  .experience-card .year {
+    font-weight: 700;
+    color: #1565c0;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+  
+  .experience-card h4 {
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: #0d47a1;
   }
   
   /* Contact Section */
@@ -189,27 +280,86 @@
     margin: 0.5rem 0;
   }
   
-  /* Resume Link */
+  /* Resume Section */
   .resume-section a {
     display: inline-block;
-    background-color: #2c2f33;
+    background-color: #1565c0; 
     color: #ffffff;
     padding: 0.75rem 1.5rem;
     border-radius: 4px;
     text-decoration: none;
     font-weight: 500;
+    transition: background-color 0.3s;
   }
   
   .resume-section a:hover {
-    background-color: #212428;
+    background-color: #0a3575;
   }
   
   /* Footer */
   footer {
     text-align: center;
     padding: 1rem;
-    background-color: #2c2f33;
+    background-color: #1565c0; 
     color: #ffffff;
     margin-top: 2rem;
+  }
+  
+  .social-icons {
+    margin-bottom: 0.5rem;
+  }
+  
+  .social-icons a {
+    color: #ffffff;
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+  }
+  
+  .social-icons a:hover {
+    color: #ffe082;
+  }
+  
+  .heart {
+    color: #ffe082;
+    font-weight: bold;
+  }
+  
+  /* Responsive Media Queries */
+  @media (max-width: 768px) {
+    .hero-section {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .hero-image img {
+      margin: 1rem 0 0 0;
+    }
+  
+    .projects-cards {
+      flex-direction: column;
+    }
+  
+    .card {
+      flex: 1 1 100%;
+    }
+  
+    .experience-container {
+      flex-direction: column;
+    }
+  
+    .nav-toggle {
+      display: block;
+    }
+  
+    .nav-right {
+      display: none;
+    }
+  
+    .mobile-menu {
+      display: none; /* Shown/hidden via JS */
+      right: 1rem;
+      left: 1rem;
+    }
   }
   

@@ -3,30 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Manavi Rawat - Data Analyst</title>
-  <!-- Link to the external CSS file -->
+  <title>Manavi Rawat - Data Analyst Portfolio</title>
+  
+  <!-- Link to CSS -->
   <link rel="stylesheet" href="style.css" />
-  <!-- You can use Google Fonts or any other font service -->
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link 
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" 
     rel="stylesheet" 
   />
+
+  <!-- Font Awesome for Icons (Optional but convenient) -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <!-- Navigation (Optional) -->
-  <nav>
+  <!-- Navigation -->
+  <nav class="navbar">
     <div class="nav-left">
-      <h1>Manavi Rawat</h1>
+      <h1 class="site-title">Manavi Rawat</h1>
     </div>
     <div class="nav-right">
-      <a href="#about">About Me</a>
+      <a href="#about">About</a>
       <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
       <a href="#resume">Resume</a>
     </div>
+    <!-- Mobile Toggle (Hamburger Menu) -->
+    <div class="nav-toggle" id="mobile-menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
   </nav>
+
+  <!-- Mobile Menu (hidden by default) -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+    <a href="#resume">Resume</a>
+  </div>
 
   <!-- Hero Section -->
   <header class="hero-section">
@@ -37,7 +58,7 @@
       <a class="hero-btn" href="#about">Learn more about me</a>
     </div>
     <div class="hero-image">
-      <!-- Replace "assets/profile.jpg" with the actual path or URL to your profile pic -->
+      <!-- Replace with your own profile image in assets folder -->
       <img src="assets/profile.jpg" alt="Profile Picture of Manavi Rawat" />
     </div>
   </header>
@@ -57,122 +78,158 @@
       Engineering at Nagpur University, India. I had several database foundation 
       courses during my bachelors. I have always been fascinated by the fact 
       that we have so much to learn in the world and data being the source of 
-      it. Be it everyday activities like learning a new language, exploring 
-      travel destinations, deciding what to order from your favorite restaurant 
-      or be it transforming businesses to make critical decisions that define 
-      sustainable growth while ensuring customer satisfaction, Data has a role 
-      to play everywhere. This curiosity led me to pursue a Masters degree in 
-      Business Analytics from The University of Texas at Dallas. After Graduation, 
-      I have been working with major Consulting companies like Atos Syntel and 
-      HCLTech for more than 4.5 years with clients in Banking, Financial Services, 
+      it. This curiosity led me to pursue a Masters degree in Business Analytics 
+      from The University of Texas at Dallas. After graduation, I have been 
+      working with major consulting companies like Atos Syntel and HCLTech for 
+      more than 4.5 years with clients in Banking, Financial Services, 
       Transportation and Logistics. Over the course of my career, I've refined 
-      my proficiency in a multitude of analytical tools and programming languages, 
-      including SQL, Tableau, Python, SAS and Excel, allowing me to tackle 
-      diverse data challenges efficiently.
-    </p>
-    <p>
-      <strong>What I Do</strong><br />
-      <ul>
-        <li><strong>Data Collection &amp; Cleaning:</strong> I gather data from multiple sources, ensuring accuracy and preparing it for detailed analysis.</li>
-        <li><strong>Data Visualization:</strong> I create intuitive visual narratives using Tableau and Matplotlib, making complex data easy to understand.</li>
-        <li><strong>Statistical Analysis:</strong> My expertise in statistical modeling and hypothesis testing uncovers trends and patterns that drive strategic decisions.</li>
-        <li><strong>Predictive Modeling:</strong> I develop predictive models to forecast trends and identify growth opportunities.</li>
-        <li><strong>Reporting &amp; Dashboards:</strong> I design comprehensive reports and interactive dashboards for real-time insights.</li>
-      </ul>
-    </p>
-    <p>
-      <strong>My Approach</strong><br />
-      I firmly believe in the profound impact of data-driven insights on business 
-      strategy. My approach blends technical prowess with an insatiable curiosity, 
-      continually seeking innovative methodologies to extract value from data. I am 
-      dedicated to ongoing professional growth, ensuring I remain abreast of the 
-      latest industry trends and technological advancements.
+      my proficiency in SQL, Tableau, Python, SAS and Excel, tackling diverse 
+      data challenges efficiently.
     </p>
     <p>
       <strong>On a More Personal Perspective</strong><br />
-      In addition to my professional journey as a Data Analyst, I immerse myself 
-      in various passions that ignite my creativity and drive. I am trained in 
-      Kathak, an Indian classical dance form and have completed a Senior Diploma 
-      in Dance from Gwalior University, India. I run an Instagram handle 
-      <em>@manavirawatofficial</em> where I post my dance videos and collaborations 
-      as a fashion model. Beyond dance, I find joy in playing musical instruments 
-      like Synthesizer, Piano, and Ukulele. I also indulge my inner artist through 
-      painting canvases, allowing me to explore new realms of creativity. Outside 
-      of my creative interests, I cherish moments with my family and have a 
-      special affection for dogs, which adds warmth and balance to my life.
-    </p>
-    <p>
-      <strong>Why Work With Me?</strong><br />
-      <ul>
-        <li><strong>Attention to Detail:</strong> I ensure every analysis is thorough and reliable.</li>
-        <li><strong>Problem Solver:</strong> I excel at solving complex problems and leveraging data for business success.</li>
-        <li><strong>Collaborative:</strong> I work closely with teams to deliver insights that align with their goals.</li>
-        <li><strong>Results-Oriented:</strong> I focus on delivering tangible results that drive growth and efficiency.</li>
-      </ul>
+      Beyond my professional pursuits, I'm also a trained Kathak dancer, a 
+      fashion model, and enjoy playing musical instruments like the Synthesizer 
+      and Ukulele. This creative angle helps me bring fresh perspectives to 
+      every data project I undertake.
     </p>
   </section>
 
-  <!-- Projects Section (UPDATED) -->
+  <!-- Projects Section -->
   <section id="projects" class="projects-section">
     <h2>Projects</h2>
-    
     <div class="projects-cards">
       <!-- Project 1 Card -->
       <div class="card">
-        <!-- Replace this image src with an actual thumbnail image for your project -->
-        <img src="assets/life-expectancy.jpg" alt="Life Expectancy Analysis Thumbnail" />
+        <img src="assets/life-expectancy-analysis.jpg" alt="Life Expectancy Analysis Thumbnail" />
         <h3>Life Expectancy Analysis Using Python</h3>
-        
         <p class="overview">
-          In this project, I explored global life expectancy data to uncover
-          what socioeconomic, demographic, and healthcare factors most strongly
-          impact how long people live around the world. Employing Python’s data
-          analytics ecosystem (Pandas, NumPy, Matplotlib, Seaborn), I cleaned
-          and transformed raw data, filled in missing values, and performed
-          descriptive and inferential analysis.
+          Explored global life expectancy data to uncover socioeconomic, demographic, 
+          and healthcare factors most strongly impacting longevity. Employed Python 
+          libraries (Pandas, NumPy, Matplotlib, Seaborn) for data cleaning, analysis, 
+          and visualization.
         </p>
-
-        <div class="details">
-          <h4>Key Highlights</h4>
-          <ul>
-            <li>
-              <strong>Data Cleaning &amp; Exploration:</strong> Handled missing data
-              systematically, identified outliers, and used visualization techniques to spot trends.
-            </li>
-            <li>
-              <strong>Correlation &amp; Regression:</strong> Investigated correlations 
-              between life expectancy and variables like GDP, healthcare spending, 
-              and literacy rates. Built regression models (e.g., Linear Regression) 
-              to predict life expectancy based on these factors.
-            </li>
-            <li>
-              <strong>Data Visualization:</strong> Created clear, compelling plots and charts 
-              that highlighted global discrepancies in life expectancy and offered insights 
-              into policy changes that might improve overall lifespans.
-            </li>
-            <li>
-              <strong>Outcome:</strong> Demonstrated how data-driven decision-making can inform 
-              public health initiatives, underscore inequalities, and guide resource allocation 
-              to improve longevity across different regions.
-            </li>
-          </ul>
-          <p>
-            <strong>Tools &amp; Technologies:</strong> Python, Jupyter Notebook, Pandas,
-            NumPy, Matplotlib, Seaborn
-          </p>
-        </div>
-
         <a 
           class="project-link" 
-          href="https://github.com/Manavi09/Life-Expectancy-Analysis-using-Python" 
+          href="https://github.com/Manavi09/Life-Expectancy-Analysis-using-Python"
           target="_blank"
         >
           View on GitHub
         </a>
       </div>
-      <!-- End of Card -->
+      
+      <!-- Project 2 Card (Sample) -->
+      <div class="card">
+        <img src="assets/project2.jpg" alt="Project 2 Thumbnail" />
+        <h3>Loan Application Status Prediction</h3>
+        <p class="overview">
+          Built classification models (Logistic Regression, Random Forest) to 
+          predict loan approvals based on applicant financial background. 
+          Emphasized feature engineering and model evaluation metrics like 
+          precision, recall, and ROC AUC.
+        </p>
+        <a 
+          class="project-link" 
+          href="https://github.com/Manavi09/Your-Loan-Repo" 
+          target="_blank"
+        >
+          View on GitHub
+        </a>
+      </div>
 
-      <!-- Add more cards here for additional projects in the same format. -->
+      <!-- Project 3 Card (Sample) -->
+      <div class="card">
+        <img src="assets/project3.jpg" alt="Project 3 Thumbnail" />
+        <h3>Mall Customer Segmentation</h3>
+        <p class="overview">
+          Analyzed mall customer behavior and applied K-Means clustering to 
+          segment shoppers. Provided data-driven marketing insights for 
+          improving customer retention and targeting promotional offers.
+        </p>
+        <a 
+          class="project-link" 
+          href="https://github.com/Manavi09/Your-Mall-Repo" 
+          target="_blank"
+        >
+          View on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section">
+    <h2>Skills</h2>
+    <div class="skills-container">
+      <div class="skill-box">
+        <span class="skill-name">Python</span>
+        <div class="progress-bar"><div class="progress" data-skill-percent="90%"></div></div>
+      </div>
+      <div class="skill-box">
+        <span class="skill-name">R</span>
+        <div class="progress-bar"><div class="progress" data-skill-percent="75%"></div></div>
+      </div>
+      <div class="skill-box">
+        <span class="skill-name">SQL</span>
+        <div class="progress-bar"><div class="progress" data-skill-percent="85%"></div></div>
+      </div>
+      <div class="skill-box">
+        <span class="skill-name">Tableau</span>
+        <div class="progress-bar"><div class="progress" data-skill-percent="80%"></div></div>
+      </div>
+      <div class="skill-box">
+        <span class="skill-name">Excel</span>
+        <div class="progress-bar"><div class="progress" data-skill-percent="90%"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="experience-section">
+    <h2>Experience</h2>
+    <div class="experience-container">
+      <!-- Education Column -->
+      <div class="education-column">
+        <h3>Education</h3>
+        <div class="experience-card">
+          <span class="year">2010 - 2014</span>
+          <h4>Bachelor's Degree in Computer Science</h4>
+          <p>
+            Nagpur University, India. Studied foundational principles of computer 
+            science, databases, and software development. 
+          </p>
+        </div>
+        <div class="experience-card">
+          <span class="year">2015 - 2017</span>
+          <h4>Master's Degree in Business Analytics</h4>
+          <p>
+            The University of Texas at Dallas. Specialized in data analysis, 
+            predictive modeling, and business intelligence.
+          </p>
+        </div>
+      </div>
+      <!-- Job/Experience Column -->
+      <div class="job-column">
+        <h3>Professional Experience</h3>
+        <div class="experience-card">
+          <span class="year">2017 - 2019</span>
+          <h4>Data Analyst - Atos Syntel</h4>
+          <p>
+            Collaborated with Banking and Financial Services clients to implement 
+            data pipelines, SQL queries, and dashboards for critical financial 
+            reporting. 
+          </p>
+        </div>
+        <div class="experience-card">
+          <span class="year">2019 - Present</span>
+          <h4>Senior Business Analyst - HCLTech</h4>
+          <p>
+            Led data analytics initiatives for clients in Transportation and 
+            Logistics. Developed predictive models in Python to optimize 
+            logistics routes and costs.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -183,7 +240,7 @@
       Feel free to reach out via:
       <ul>
         <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/manavi-rawat/" target="_blank">My LinkedIn</a></li>
-        <li><strong>Email:</strong> <a href="manavi.rawat94@gmail.com">manavi.rawat94@gmail.com</a></li>
+        <li><strong>Email:</strong> <a href="manavi.rawat94@gmail.com>manavi.rawat94@gmail.com</a></li>
       </ul>
     </p>
   </section>
@@ -193,13 +250,20 @@
     <h2>Resume</h2>
     <p>
       <a href="assets/Manavi_Rawat_Resume.pdf" download>Download My Resume (PDF)</a>
-      <!-- Replace `assets/Manavi_Rawat_Resume.pdf` with the correct path/filename of your resume PDF -->
     </p>
   </section>
 
-  <!-- Footer (Optional) -->
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Manavi Rawat</p>
+    <div class="social-icons">
+      <a href="https://github.com/Manavi09" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/manavi-rawat/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.instagram.com/manavirawatofficial" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p>Made with <span class="heart">&hearts;</span> by Manavi</p>
   </footer>
+
+  <!-- Link to JS -->
+  <script src="script.js"></script>
 </body>
 </html>
