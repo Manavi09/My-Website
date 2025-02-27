@@ -26,5 +26,6 @@ function animateProgressBars() {
   });
 }
 
+// Fire when scrolled or loaded
 window.addEventListener('scroll', animateProgressBars);
 window.addEventListener('load', animateProgressBars);
