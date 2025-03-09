@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fleet Risk & Fuel Efficiency Analytics</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" 
+    rel="stylesheet" 
+  />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="assets/logo.png" alt="Manavi Logo" class="site-logo" />
+    </div>
+    <div class="nav-right">
+      <a href="index.html#about">About</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="index.html#resume">Resume</a>
+    </div>
+    <div class="nav-toggle" id="mobile-menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html#about">About</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#experience">Experience</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="index.html#resume">Resume</a>
+  </div>
+
+  <section class="project-page-section">
+    <h2>Fleet Risk &amp; Fuel Efficiency Analytics</h2>
+
+    <p>
+      This project demonstrates how to build a big data pipeline and interactive Tableau dashboards to analyze 
+      fleetwide driver performance, truck efficiency, and associated risks. Leveraging Cloudera’s Hadoop ecosystem, 
+      we ingested CSV data into HDFS, created tables in Hive, calculated key metrics (scaled risk and MPG), and 
+      visualized the results in Tableau.
+    </p>
+
+    <p>
+      <strong>Key Steps &amp; Technologies</strong><br><br>
+
+      <em>Data Ingestion &amp; Storage</em><br>
+      Converted multiple Excel sheets to CSV files and transferred them to a Cloudera Virtual Machine using scp.<br>
+      Moved CSV files into HDFS with <code>hdfs dfs -put</code>, enabling distributed storage.<br>
+      Created empty tables in Hive and loaded data from HDFS into these tables for efficient querying.
+    </p>
+
+    <p>
+      <em>Data Transformation</em><br>
+      Generated two critical metrics:<br>
+      Scaled Risk: (events / total_miles) normalized to a 1–10 scale.<br>
+      Overall MPG: (total_miles / total_gas).<br>
+      Joined multiple tables in Hive to produce a comprehensive dataset covering driver details, truck attributes, 
+      and operational events (idling, risky incidents, etc.).
+    </p>
+
+    <p>
+      <em>Visualization &amp; Insights</em><br>
+      Connected Hive to Tableau, where dashboards highlight:<br><br>
+      • Risky Drivers: Ranking by scaled risk.<br>
+      • Low MPG Trucks: Identifies specific truck IDs with below‐average fuel efficiency.<br>
+      • Risky Events &amp; Idling: Geographic maps showing where incidents and prolonged idling occur.<br>
+      • Risky Models: Bubble chart illustrating which truck manufacturers or models have higher aggregated risk.<br><br>
+      Enables stakeholders to pinpoint drivers with elevated risk, trucks with poor fuel economy, and regions 
+      with frequent incidents—supporting data‐driven decisions around maintenance, driver training, and route planning.
+    </p>
+
+    <p>
+      <strong>Outcome</strong><br><br>
+      By combining Hadoop’s scalability with Tableau’s visual analytics, the project provides a cohesive view 
+      of operational risks and inefficiencies across a large trucking fleet. This solution helps fleet managers 
+      proactively address high‐risk behaviors, optimize fuel usage, and improve overall safety and performance.
+    </p>
+
+    <p style="margin-top: 2rem;">
+      <a 
+        href="https://github.com/Manavi09/Risky-Driver-Analysis-Tableau-Hive" 
+        class="project-link" 
+        target="_blank"
+      >
+        View on GitHub
+      </a>
+    </p>
+  </section>
+
+  <footer>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/manavi09" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/manavirawatofficial" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/Manavi09" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/Manavi-Rawat/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+    <p>Made with <span class="heart">&hearts;</span> by Manavi</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

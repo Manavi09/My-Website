@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Life Expectancy Analysis with Python</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" 
+    rel="stylesheet" 
+  />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="assets/logo.png" alt="Manavi Logo" class="site-logo" />
+    </div>
+    <div class="nav-right">
+      <a href="index.html#about">About</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="index.html#resume">Resume</a>
+    </div>
+    <div class="nav-toggle" id="mobile-menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html#about">About</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#experience">Experience</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="index.html#resume">Resume</a>
+  </div>
+
+  <section class="project-page-section">
+    <h2>Life Expectancy Analysis with Python</h2>
+
+    <p>
+      <strong>Overview</strong><br><br>
+      This two-phase project uses Python-based data science techniques to explore and predict life expectancy 
+      across various countries. By combining data preprocessing, exploratory analysis, and machine learning 
+      models, each phase offers deeper insights into the key factors impacting global health and longevity.
+    </p>
+
+    <p>
+      <strong>Phase 1: Data Exploration &amp; Preprocessing</strong><br><br>
+      <em>Dataset Cleaning</em><br>
+      Imported a public life expectancy dataset containing indicators like GDP, immunization rates, healthcare 
+      spending, and lifestyle factors.<br>
+      Addressed missing values and outliers, ensuring a cleaner, more consistent foundation for analysis.
+    </p>
+
+    <p>
+      <em>Exploratory Analysis</em><br>
+      Employed Pandas, NumPy, Matplotlib, and Seaborn to visualize relationships between various socio-economic 
+      and health features—such as income level or immunization coverage—and life expectancy.<br>
+      Generated descriptive statistics and correlation heatmaps to pinpoint significant predictors 
+      (e.g., GDP, adult mortality, alcohol consumption).
+    </p>
+
+    <p>
+      <em>Insights</em><br>
+      Confirmed that well-funded healthcare systems and higher vaccination rates correlate strongly with increased 
+      life expectancy.<br>
+      Identified certain demographic or lifestyle variables (e.g., smoking rates) that negatively impact national averages.
+    </p>
+
+    <p>
+      <strong>Phase 2: Machine Learning &amp; Prediction</strong><br><br>
+      <em>Model Building</em><br>
+      Set up regression models (e.g., Linear Regression, Random Forest) to predict life expectancy based on the 
+      cleaned dataset.<br>
+      Evaluated models using R², Mean Squared Error (MSE), and cross-validation to measure both accuracy 
+      and generalizability.
+    </p>
+
+    <p>
+      <em>Feature Engineering &amp; Tuning</em><br>
+      Experimented with additional transforms, such as log-scaling high-range variables (GDP, population), 
+      to boost predictive performance.<br>
+      Performed hyperparameter tuning on ensemble methods (Random Forest, Gradient Boosting) to refine predictions.
+    </p>
+
+    <p>
+      <em>Results</em><br>
+      Demonstrated that ensemble models often outperform basic linear approaches, yielding more robust 
+      predictions across countries.<br>
+      Identified the top contributing factors—like adult mortality, GDP, and health expenditure—that drive 
+      variations in life expectancy outcomes.
+    </p>
+
+    <p>
+      <strong>Tools &amp; Technologies</strong><br><br>
+      Python: Data processing and modeling<br>
+      Pandas &amp; NumPy: Cleaning and organizing large datasets<br>
+      Matplotlib &amp; Seaborn: Visual exploration of key features<br>
+      Scikit‐learn: Regression models, cross‐validation, and hyperparameter tuning<br>
+      Jupyter Notebook: Iterative data science workflow and documentation
+    </p>
+
+    <p>
+      <strong>Project Highlights</strong><br><br>
+      Rigorous data cleaning and outlier detection methods to ensure reliability.<br>
+      Comprehensive visual insights, from correlation heatmaps to box plots, illustrating the drivers of life expectancy.<br>
+      Multiple regression approaches—both traditional and ensemble‐based—to understand and forecast global health trends.
+    </p>
+
+    <p>
+      <strong>Conclusion</strong><br><br>
+      By breaking the workflow into two complementary phases—thorough exploration in Phase 1 and predictive 
+      modeling in Phase 2—this project delivers a holistic view of what shapes life expectancy worldwide. 
+      Policymakers, healthcare professionals, and data scientists alike can leverage these findings to 
+      inform strategies improving global population health.
+    </p>
+
+    <p style="margin-top: 2rem;">
+      <a 
+        href="https://github.com/Manavi09/Life-Expectancy-Analysis-using-Python" 
+        class="project-link" 
+        target="_blank"
+      >
+        View on GitHub
+      </a>
+    </p>
+  </section>
+
+  <footer>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/manavi09" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/manavirawatofficial" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/Manavi09" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/Manavi-Rawat/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+    <p>Made with <span class="heart">&hearts;</span> by Manavi</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

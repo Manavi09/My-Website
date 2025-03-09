@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>COVID-19 Chatbot</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" 
+    rel="stylesheet" 
+  />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="assets/logo.png" alt="Manavi Logo" class="site-logo" />
+    </div>
+    <div class="nav-right">
+      <a href="index.html#about">About</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="index.html#resume">Resume</a>
+    </div>
+    <div class="nav-toggle" id="mobile-menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html#about">About</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#experience">Experience</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="index.html#resume">Resume</a>
+  </div>
+
+  <section class="project-page-section">
+    <h2>COVID-19 Chatbot</h2>
+
+    <p>
+      <strong>Overview</strong><br><br>
+      This project demonstrates how to build a basic chatbot capable of answering frequently asked questions 
+      about COVID-19. It leverages Natural Language Processing (NLP) techniques in Python to parse user 
+      queries, compare them against a predefined knowledge base, and return relevant, concise answers. 
+      By combining data cleaning, similarity scoring, and user‐friendly output, this chatbot offers a 
+      quick reference tool for COVID‐19 information.
+    </p>
+
+    <p>
+      <strong>Key Features</strong><br><br>
+      <em>Data Preparation</em><br>
+      Gathers and cleans a set of COVID‐19 FAQs, filtering out extraneous text so that each question‐and‐answer 
+      pair remains clear and consistent.<br>
+      Applies tokenization and lemmatization to normalize the text data.
+    </p>
+
+    <p>
+      <em>Similarity Scoring</em><br>
+      Uses TF‐IDF or cosine similarity (depending on the method chosen in the code) to compare user queries 
+      with the existing FAQ knowledge base.<br>
+      Selects the best‐matched answer for user‐typed queries, improving the chatbot’s relevance and accuracy.
+    </p>
+
+    <p>
+      <em>User Interaction</em><br>
+      Facilitates a simple, text‐based chat session where users can type natural language questions about 
+      symptoms, prevention measures, testing, and more.<br>
+      Returns the most suitable, contextually relevant answer pulled from the knowledge base.
+    </p>
+
+    <p>
+      <em>Easy Integration</em><br>
+      Written in Python and presented in a Jupyter Notebook, allowing for straightforward deployment or 
+      further enhancement.<br>
+      Readily extensible: developers can add more FAQs, incorporate updated health guidelines, or switch 
+      out NLP models for improved performance.
+    </p>
+
+    <p>
+      <strong>Technologies &amp; Libraries</strong><br><br>
+      • Python for the main application logic and data processing<br>
+      • NLTK / SpaCy (as shown in the code) for tokenization and lemmatization<br>
+      • Scikit‐learn or similar libraries for TF‐IDF vectorization and similarity computations<br>
+      • Jupyter Notebook environment for clear, iterative development
+    </p>
+
+    <p>
+      <strong>Outcome</strong><br><br>
+      This chatbot provides a user‐friendly interface to quickly retrieve COVID‐19 health information, 
+      showcasing how NLP techniques can transform a static FAQ list into an interactive, on‐demand 
+      knowledge system. It also illustrates core chatbot development concepts—from data cleaning and 
+      feature extraction to similarity scoring—that can be applied to broader conversational AI projects.
+    </p>
+
+    <p style="margin-top: 2rem;">
+      <a 
+        href="https://github.com/Manavi09/Simple-Chatbot-for-Covid-19" 
+        class="project-link" 
+        target="_blank"
+      >
+        View on GitHub
+      </a>
+    </p>
+  </section>
+
+  <footer>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/manavi09" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/manavirawatofficial" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/Manavi09" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/Manavi-Rawat/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+    <p>Made with <span class="heart">&hearts;</span> by Manavi</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
