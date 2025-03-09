@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Stock Pricing Analysis using SAS</title>
   <link rel="stylesheet" href="style.css"/>
-  <!-- Google Fonts + FontAwesome same as index.html -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link 
@@ -15,7 +14,7 @@
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <!-- Navigation (repeated so user can return Home, etc.) -->
+  <!-- Navigation -->
   <nav class="navbar">
     <div class="nav-left">
       <img src="assets/logo.png" alt="Manavi Logo" class="site-logo" />
@@ -33,7 +32,7 @@
     </div>
   </nav>
 
-  <!-- Mobile Menu (optional) -->
+  <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobile-menu">
     <a href="index.html#about">About</a>
     <a href="index.html#projects">Projects</a>
@@ -43,28 +42,46 @@
     <a href="index.html#resume">Resume</a>
   </div>
 
+  <!-- Project Details -->
   <section class="project-page-section">
     <h2>Stock Pricing Analysis using SAS</h2>
     <p>
-      This project explores historical stock market data—spanning thousands of 
-      U.S. stocks and ETFs—to analyze and predict price movements using multiple 
-      statistical and time series approaches in SAS. The core dataset contains 
-      daily Open, High, Low, Close, and Volume values for each ticker from about 
-      1960 onward, with no missing values found...
+      This project explores historical stock market data—spanning thousands of U.S. stocks and ETFs—to analyze and predict price movements using multiple statistical and time series approaches in SAS . The core dataset contains daily Open, High, Low, Close, and Volume values for each ticker from about 1960 onward, with no missing values found. Key activities and findings include:
+1.	Data Cleaning & Exploration
+o	Verified no missing values in the selected sample (10 major companies including Google, General Electric, and Johnson & Johnson).
+o	Visualized overall trends: Google showed a steady upward trend with minimal dips, whereas GE and J&J exhibited flatter periods in earlier decades followed by more pronounced fluctuations.
+2.	Regression Models
+o	Linear Regression: Used Open as the dependent variable and Close, High, Low, Volume as predictors.
+	P values < 0.001 confirmed the regression models were statistically significant.
+	Volume often turned out to be insignificant; Close, High, and Low were consistently important predictors.
+o	Pooled OLS: Extended the linear approach across time; confirmed Close and High/Low metrics have strong explanatory power for Open in subsequent days.
+3.	Time Series Approaches
+o	Simple Time Series & ACF: Showed positive autocorrelation in the Open and Close prices (i.e., past values strongly influence future values). A White Noise Probability test indicated no white noise, reinforcing that price sequences have meaningful structure.
+o	Exponential Smoothing: Revealed that Google’s daily Open/Close maintained steady growth with notable dips around the 2008 recession, while GE and J&J’s data contained more frequent highs and lows starting from the mid-1990s. The error distributions were near-normal, indicating relatively well behaved residuals.
+o	Moving Average: Illustrated how short-term price movements (e.g., 5-day windows) smoothed out daily volatility, highlighting clear uptrends (Google, J&J post 1990) and downtrends (GE post 2001).
+o	ARIMA Models:
+	Autoregressive parameters were significant (high t values), verifying strong dependence on prior prices.
+	Low t values for mean terms indicated they contributed little to model accuracy.
+	Residual diagnostics suggested the absence of white noise, confirming that the data exhibit autocorrelations that ARIMA can capture.
+4.	Conclusions
+o	The previous day’s Close price is highly predictive of the next day’s Open, aligning with real-world investor behaviors.
+o	Although Volume was hypothesized to be influential, it was not consistently significant across models—suggesting that price movements for these particular companies may be driven more by past price behavior than by raw trade volume.
+o	The 2008 financial crisis surfaced as a clear disruptor in upward trends for most companies, indicating the responsiveness of stock prices to macroeconomic events.
+Overall, the combination of regression (Linear, Pooled OLS) and time series (Exponential Smoothing, Moving Average, ARIMA) methods provided nuanced insights into stock price behavior. The project demonstrates how careful model selection, statistical testing (p values, t values, autocorrelation checks), and time series diagnostics can help analysts better understand market trends and enhance investment decision-making.
+
     </p>
-    <!-- Insert the rest of the text from your Word doc below -->
+    <!-- Insert the entire text from your Word doc here -->
     <p>
-      <strong>Data Cleaning & Exploration</strong><br/>
-      Verified no missing values in the selected sample (10 major companies 
-      including Google, General Electric, and Johnson & Johnson)...  
-      <!-- Continue the entire project text from your doc -->
+      <strong>Data Cleaning &amp; Exploration:</strong><br />
+      Verified no missing values... 
+      <!-- And so on -->
     </p>
-    <!-- ... repeat all paragraphs ... -->
+    <!-- Continue all the paragraphs from your doc -->
 
     <!-- GitHub Link (Placeholder) -->
     <p>
-      <strong>GitHub Repo:</strong> 
-      <a href="https://github.com/yourusername/StockPricingSAS" target="_blank">
+      <strong>GitHub Repo:</strong>
+      <a href="https://github.com/Manavi09/Stock-Price-Analysis-using-SAS" target="_blank">
         View Code on GitHub
       </a>
     </p>
@@ -80,6 +97,7 @@
     </div>
     <p>Made with <span class="heart">&hearts;</span> by Manavi</p>
   </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
