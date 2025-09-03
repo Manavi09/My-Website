@@ -1,341 +1,1623 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Manavi Rawat - Data Analyst Portfolio</title>
-  
-  <!-- Link to CSS -->
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manavi Rawat - Senior Data Analytics Leader</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-dark: #0f172a;
+            --border-color: #e5e7eb;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" 
-    rel="stylesheet"
-  />
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <!-- Font Awesome 4.7 for Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    integrity="sha512-SfW1In3svzBvrbiL9Hx7M7f00nZOd3QunQWJbP1z1AbaFRkVZb45sVoJMz6JeH4tJITN1q9RRHC3u3aUuZ6VTA=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section - Fixed height and positioning */
+        .hero {
+            min-height: 100vh;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23FFF" stop-opacity=".1"/><stop offset="100%" stop-color="%23FFF" stop-opacity="0"/></radialGradient></defs><rect width="11" height="11" fill="url(%23a)" rx="2" ry="2"/></svg>') repeat;
+            opacity: 0.1;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-content .description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Section Styles - Fixed positioning */
+        .section {
+            padding: 5rem 0;
+            position: relative;
+            z-index: 2;
+            background: var(--bg-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-1);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-secondary);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .highlight-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-color);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            width: calc(50% - 2rem);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .timeline-icon {
+            position: absolute;
+            left: 50%;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .timeline-icon i {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .job-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .company-name {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .job-duration {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .job-achievements {
+            list-style: none;
+        }
+
+        .job-achievements li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .job-achievements li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: var(--bg-secondary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category h3 i {
+            font-size: 1.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: var(--gradient-1);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.1);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .project-image {
+            height: 200px;
+            background: var(--gradient-2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image i {
+            font-size: 3rem;
+            color: white;
+            opacity: 0.8;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .project-link.primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .project-link.secondary {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .project-link:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--bg-dark);
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-icon i {
+            font-size: 1.25rem;
+        }
+
+        .contact-details h4 {
+            margin-bottom: 0.25rem;
+            color: white;
+        }
+
+        .contact-details p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .contact-details a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0a0f1c;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+                align-items: flex-start;
+            }
+
+            .timeline-content {
+                width: calc(100% - 4rem);
+                margin-left: 4rem;
+            }
+
+            .timeline-icon {
+                left: 30px;
+            }
+
+            .experience-timeline::before {
+                left: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: start;
+                align-items: center;
+                padding: 2rem 0;
+                transition: left 0.3s ease;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--border-color);
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="nav-left">
-    
-    </div> 
-    <div class="nav-right">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
-      <a href="#resume">Resume</a>
-    </div>
-    <div class="nav-toggle" id="mobile-menu-toggle">
-      <i class="fa fa-bars"></i>
-    </div>
-  </nav>
-
-  <!-- Mobile Menu (hidden by default) -->
-  <div class="mobile-menu" id="mobile-menu">
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#contact">Contact</a>
-    <a href="#resume">Resume</a>
-  </div>
-
-  <!-- Hero Section -->
-  <header class="hero-section">
-    <div class="hero-content">
-      <h2>Hi! I’m Manavi Rawat</h2>
-      <h4>Data Science and Analytics | Business Intelligence</h4>
-      <p>Fueling Growth Through Data: Insights for Smarter Decisions</p>
-      <a class="hero-btn" href="#about">Learn more about me</a>
-    </div>
-    <div class="hero-image">
-      <!-- Replace with your own profile image in assets folder -->
-      <img src="assets/profile.jpeg" alt="Profile Picture of Manavi Rawat" />
-    </div>
-  </header>
-
-  <!-- About Me Section (Scrollable) -->
-  <section id="about" class="about-section">
-    <h2>About Me</h2>
-    <p>
-      Naturally curious and passionate Data Analyst dedicated to transforming raw data into actionable insights. 
-      With a solid foundation in Data Analytics and Business Intelligence, I excel at analyzing complex datasets 
-      and helping businesses make informed decisions.
-    </p>
-
-    <p>
-      <strong>My Professional Journey</strong><br><br>
-      My journey into data analysis commenced with a degree in Computer Science Engineering at Nagpur University, 
-      India. I had several database foundation courses during my bachelor’s degree. I have always been fascinated 
-      by the fact that we have so much to learn in the world and data being the source of it. Be it everyday 
-      activities like learning a new language, exploring travel destinations, deciding what to order from your 
-      favorite restaurant or be it transforming businesses to make critical decisions that define sustainable 
-      growth while ensuring customer satisfaction, Data has a role to play everywhere. This curiosity led me to 
-      pursue a Master’s degree in Business Analytics from The University of Texas at Dallas. After Graduation, 
-      I have been working with major Consulting companies like Atos Syntel and HCLTech for more than 4.5 years 
-      with clients in Banking, Financial Services, Transportation and Logistics. Over the course of my career, 
-      I've refined my proficiency in a multitude of analytical tools and programming languages, including SQL, 
-      Tableau, Python, SAS and Excel, allowing me to tackle diverse data challenges efficiently.
-    </p>
-
-    <p>
-      <strong>What I Do</strong><br><br>
-      <strong>Data Collection &amp; Cleaning:</strong> I gather data from multiple sources, ensuring accuracy and preparing it 
-      for detailed analysis.<br><br>
-      <strong>Data Visualization:</strong> I create intuitive visual narratives using Tableau and Matplotlib, making 
-      complex data easy to understand.<br><br>
-      <strong>Statistical Analysis:</strong> My expertise in statistical modeling and hypothesis testing uncovers trends 
-      and patterns that drive strategic decisions.<br><br>
-      <strong>Predictive Modeling:</strong> I develop predictive models to forecast trends and identify growth opportunities.<br><br>
-      <strong>Reporting &amp; Dashboards:</strong> I design comprehensive reports and interactive dashboards for real-time insights.
-    </p>
-
-    <p>
-      <strong>My Approach</strong><br><br>
-      I firmly believe in the profound impact of data-driven insights on business strategy. My approach blends technical prowess 
-      with an insatiable curiosity, continually seeking innovative methodologies to extract value from data. I am dedicated to 
-      ongoing professional growth, ensuring I remain abreast of the latest industry trends and technological advancements.
-    </p>
-
-    <p>
-      <strong>On a More Personal Perspective</strong><br><br>
-      In addition to my professional journey as a Data Analyst, I immerse myself in various passions that ignite my creativity 
-      and drive. I am trained in Kathak, an Indian classical dance form and have completed a Senior Diploma in Dance from 
-      Gwalior University, India. I run an Instagram handle called @manavirawatofficial where I post my dance videos and 
-      collaborations as a fashion model. Beyond dance, I find joy in playing musical instruments like Synthesizer, Piano, 
-      and Ukulele. I also indulge my inner artist through painting canvases, allowing me to explore new realms of creativity. 
-      Outside of my creative interests, I cherish moments with my family and have a special affection for dogs, which adds 
-      warmth and balance to my life.
-    </p>
-
-    <p>
-      <strong>Why Work With Me?</strong><br><br>
-      <strong>Attention to Detail:</strong> I ensure every analysis is thorough and reliable.<br><br>
-      <strong>Problem Solver:</strong> I excel at solving complex problems and leveraging data for business success.<br><br>
-      <strong>Collaborative:</strong> I work closely with teams to deliver insights that align with their goals.<br><br>
-      <strong>Results-Oriented:</strong> I focus on delivering tangible results that drive growth and efficiency.
-    </p>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="projects-section">
-    <h2>Projects</h2>
-    <div class="projects-cards">
-      <!-- Project 1 Card -->
-      <div class="card">
-        <img src="assets/project1.jpg" alt="Stock Pricing Analysis" />
-        <h3>Stock Pricing Analysis using SAS</h3>
-        <a class="card-link" href="project1.html">Open Project</a>
-      </div>
-
-      <!-- Project 2 Card -->
-      <div class="card">
-        <img src="assets/project2.jpg" alt="Loan Application Analysis" />
-        <h3>Loan Application Analysis with Python</h3>
-        <a class="card-link" href="project2.html">Open Project</a>
-      </div>
-
-      <!-- Project 3 Card -->
-      <div class="card">
-        <img src="assets/project3.jpg" alt="Risky Driver Analysis" />
-        <h3>Fleet Risk &amp; Fuel Efficiency Analytics</h3>
-        <a class="card-link" href="project3.html">Open Project</a>
-      </div>
-
-      <!-- Project 4 Card -->
-      <div class="card">
-        <img src="assets/project4.jpg" alt="Chatbot for COVID-19" />
-        <h3>COVID-19 Chatbot</h3>
-        <a class="card-link" href="project4.html">Open Project</a>
-      </div>
-
-      <!-- Project 5 Card -->
-      <div class="card">
-        <img src="assets/project5.jpg" alt="Life Expectancy Analysis" />
-        <h3>Life Expectancy Analysis with Python</h3>
-        <a class="card-link" href="project5.html">Open Project</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="skills-section">
-    <h2>My Skills</h2>
-
-    <!-- Chip-Style Skills -->
-    <div class="chips-skills">
-      <span class="chip">SQL</span>
-      <span class="chip">SAS</span>
-      <span class="chip">Python</span>
-      <span class="chip">R</span>
-      <span class="chip">Tableau</span>
-      <span class="chip">Excel</span>
-      <!-- <span class="chip">SAS Studio</span> -->
-      <!-- <span class="chip">Dremio</span> -->
-      <span class="chip">Alteryx</span>
-      <!-- <span class="chip">Jira</span>
-      <span class="chip">Asana</span> -->
-      <span class="chip">GCP</span>
-      <span class="chip">Azure</span>
-      <!-- <span class="chip">AWS</span> -->
-      <span class="chip">Snowflake</span>
-      <!-- <span class="chip">Data Cleaning &amp; Preparation</span> -->
-      <span class="chip">Data Visualization</span>
-      <span class="chip">Statistical Analysis</span>
-      <span class="chip">Hypothesis Testing</span>
-      <span class="chip">Machine Learning</span>
-      <span class="chip">Demand Forecasting</span>
-      <span class="chip">Communication</span>
-      <span class="chip">Public Speaking</span>
-      <span class="chip">Creativity</span>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
     </div>
 
-    <!-- Word Cloud (simple text version) -->
-    <!-- <div class="word-cloud">
-      <span style="font-size: 1.8rem;">SQL</span>
-      <span style="font-size: 1.4rem;">SAS</span>
-      <span style="font-size: 1.6rem;">Python</span>
-      <span style="font-size: 1.2rem;">R</span>
-      <span style="font-size: 1.5rem;">Tableau</span>
-      <span style="font-size: 1.3rem;">Excel</span>
-      <span style="font-size: 1.4rem;">Machine Learning</span>
-      <span style="font-size: 1.6rem;">Data Visualization</span>
-      <span style="font-size: 1.2rem;">Statistical Analysis</span>
-      <span style="font-size: 1.7rem;">Cloud Platforms</span>
-      <span style="font-size: 1.3rem;">Demand Forecasting</span>
-      <span style="font-size: 1.1rem;">Hypothesis Testing</span>
-      <span style="font-size: 1.4rem;">Communication</span>
-      <span style="font-size: 1.2rem;">Creativity</span>
-    </div>
-  </section> -->
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Manavi Rawat</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Experience Section -->
-  <section id="experience" class="experience-section">
-    <h2>Experience</h2>
-    <div class="experience-container">
-      <div class="job-column">
-        <h3>HCLTech</h3>
-        <h4>Senior Data Science and Analytics Consultant</h4>
-        <p>May 2022 – Present</p>
-        <p>
-          Developed AI solutions for various industries like Manufacturing, Oil &amp; Gas, Automative, 
-          and Hospitality. Collaborated with Banking and Financial Services clients to implement 
-          data pipelines, SQL queries, and dashboards for critical financial reporting.
-        </p>
-      </div>
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Senior Data Analytics Leader</h1>
+                <p class="subtitle">Transforming Data into Strategic Insights</p>
+                <p class="description">
+                    Seasoned analytics professional with 5+ years of experience driving business transformation 
+                    through data strategy, AI solutions, and executive decision-making across logistics, 
+                    financial services, and enterprise operations.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">$7M+</div>
+                        <div class="stat-label">Value Delivered</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Users Impacted</div>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i>
+                        Get In Touch
+                    </a>
+                    <a href="#projects" class="btn btn-outline">
+                        <i class="fas fa-briefcase"></i>
+                        View My Work
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-card">
+                    <img src="assets/profile.jpeg" alt="Manavi Rawat" class="profile-image">
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <div class="job-column">
-        <h3>Atos Syntel</h3>
-        <h4>Associate Consultant - Business Analytics</h4>
-        <p>Jul 2020 – May 2022</p>
-        <p>
-          Managed QA processes and streamlined shipment workflows for client: FedEx Services, 
-          collaborating with cross‐functional teams to enhance data handling and system testing.
-        </p>
-      </div>
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">
+                    Passionate about transforming complex data into actionable business insights
+                </p>
+            </div>
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="assets/about.jpg" alt="About Manavi" onerror="this.style.display='none'">
+                </div>
+                <div class="about-content">
+                    <h3>Driving Business Success Through Data Excellence</h3>
+                    <p>
+                        My journey into data analytics began with a Computer Science Engineering degree 
+                        and evolved through a Master's in Business Analytics from UT Dallas. What started 
+                        as curiosity about data's potential to unlock insights has grown into a passion 
+                        for transforming businesses through strategic analytics.
+                    </p>
+                    <p>
+                        Over 5+ years, I've worked with industry leaders like USAA, FedEx, and HCLTech, 
+                        delivering measurable ROI through advanced analytics, AI solutions, and process automation.
+                    </p>
+                    <p>
+                        My expertise spans the entire analytics lifecycle - from data strategy and machine learning 
+                        to executive reporting and team leadership. I specialize in translating complex technical 
+                        concepts into business value, enabling data-driven decision making at all organizational levels.
+                    </p>
+                    <div class="highlights">
+                        <div class="highlight-item">
+                            <h4><i class="fas fa-chart-line"></i> Analytics Leadership</h4>
+                            <p>Leading cross-functional teams and building data-driven strategies that deliver measurable business impact</p>
+                        </div>
+                        <div class="highlight-item">
+                            <h4><i class="fas fa-robot"></i> AI & Automation</h4>
+                            <p>Implementing Gen AI solutions and automation workflows that reduce manual effort by 60%+</p>
+                        </div>
+                        <div class="highlight-item">
+                            <h4><i class="fas fa-users"></i> Stakeholder Management</h4>
+                            <p>Collaborating with C-level executives to align analytics initiatives with business objectives</p>
+                        </div>
+                        <div class="highlight-item">
+                            <h4><i class="fas fa-graduation-cap"></i> Continuous Learning</h4>
+                            <p>Certified in multiple platforms including Alteryx, Tableau, SQL, and Google GenAI</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <div class="job-column">
-        <h3>Child Poverty Action Lab</h3>
-        <h4>Data Analyst Intern</h4>
-        <p>Jan 2020 – May 2020</p>
-        <p>
-          Analyzed census data to identify key poverty indicators, built predictive models to 
-          guide policy decisions, and aligned KPIs for targeted interventions.
-        </p>
-      </div>
-    </div>
-  </section>
+    <!-- Experience Section -->
+    <section id="experience" class="section experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Professional Experience</h2>
+                <p class="section-subtitle">
+                    A track record of delivering data-driven solutions across diverse industries
+                </p>
+            </div>
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="job-title">Senior Data Analyst</div>
+                        <div class="company-name">HCLTech – Dallas, TX</div>
+                        <div class="job-duration">March 2025 – Present</div>
+                        <ul class="job-achievements">
+                            <li>Analyzed business pipeline across 5+ units, identifying $2M in cost-saving opportunities</li>
+                            <li>Built executive-facing Power BI dashboards, improving leadership decision speed by 30%</li>
+                            <li>Automated reporting via Power Automate, reducing manual workload by 60%</li>
+                            <li>Created AI copilot agents, cutting reporting preparation time by 40%</li>
+                        </ul>
+                    </div>
+                </div>
 
-  <!-- Education Section -->
-  <section class="experience-section">
-    <h2>Education</h2>
-    <div class="experience-container">
-      <div class="job-column">
-        <h3>The University of Texas at Dallas</h3>
-        <h4>Master's Degree in Business Analytics</h4>
-        <p>Jan 2019 - May 2020</p>
-        <p>Specialized in data science and analytics, predictive modeling, and business intelligence</p>
-      </div>
-      <div class="job-column">
-        <h3>Nagpur University, India</h3>
-        <h4>Bachelor's Degree in Computer Science Engineering</h4>
-        <p>Aug 2014 - Jun 2018</p>
-        <p>Studied foundational principles of computer science, databases, and software development</p>
-      </div>
-    </div>
-  </section>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="job-title">Data Scientist</div>
+                        <div class="company-name">HCLTech – Dallas, TX</div>
+                        <div class="job-duration">January 2025 – March 2025</div>
+                        <ul class="job-achievements">
+                            <li>Designed RAG-based chatbots using OpenAI, enabling self-service analytics for 500+ users</li>
+                            <li>Built forecasting solutions reducing delivery timelines by 25%</li>
+                            <li>Delivered 15+ executive demos accelerating Gen AI adoption</li>
+                            <li>Secured $5M in contract value through stakeholder alignment</li>
+                        </ul>
+                    </div>
+                </div>
 
-  <!-- Contact Me Section -->
-  <section id="contact" class="contact-section">
-    <h2>Contact Me</h2>
-    <p>
-      Feel free to reach out via:
-      <ul>
-        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/Manavi-Rawat/" target="_blank">My LinkedIn</a></li>
-        <li><strong>Email:</strong> <a href="mailto:Manavi.rawat94@gmail.com">Manavi.rawat94@gmail.com</a></li>
-      </ul>
-    </p>
-  </section>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="job-title">Credit Risk Analyst</div>
+                        <div class="company-name">USAA (via HCLTech) – San Antonio, TX</div>
+                        <div class="job-duration">August 2023 – December 2024</div>
+                        <ul class="job-achievements">
+                            <li>Analyzed credit risk models using A/B testing, reducing credit exposure by 15%</li>
+                            <li>Automated SAS workflows, enhancing reporting speed by 30%</li>
+                            <li>Improved portfolio quality by 10% through strategic risk insights</li>
+                            <li>Cut operational risks by 20% via process optimization</li>
+                        </ul>
+                    </div>
+                </div>
 
-  <!-- Resume Section -->
-  <section id="resume" class="resume-section">
-    <h2>Resume</h2>
-    <p>
-      <a href="assets/Manavi_Rawat_Resume.pdf" download>Download My Resume (PDF)</a>
-    </p>
-  </section>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="job-title">Business Intelligence Analyst</div>
+                        <div class="company-name">USAA (via HCLTech) – Dallas, TX</div>
+                        <div class="job-duration">May 2022 – August 2023</div>
+                        <ul class="job-achievements">
+                            <li>Built Tableau dashboards improving data retrieval efficiency by 20%</li>
+                            <li>Standardized KPI definitions across 4 departments</li>
+                            <li>Reduced production errors by 15% through QA testing leadership</li>
+                            <li>Cut data reconciliation time by 25% through process standardization</li>
+                        </ul>
+                    </div>
+                </div>
 
-  <!-- Footer -->
-  <footer>
-    <ul class="socials-icons">
-      <li class="socials-nav-item">
-        <a href="https://www.facebook.com/manavi09" target="_blank">
-          <span class="fa fa-facebook-f"></span>
-        </a>
-      </li>
-      <li class="socials-nav-item">
-        <a href="https://github.com/Manavi09" target="_blank">
-          <span class="fa-github"></span>
-        </a>
-      </li>
-      <li class="socials-nav-item">
-        <a href="https://www.instagram.com/manavirawatofficial" target="_blank">
-          <span class="fa-instagram"></span>
-        </a>
-      </li>
-      <li class="socials-nav-item">
-        <a href="https://www.youtube.com/@ManaviRawat" target="_blank">
-          <span class="fa-youtube"></span>
-        </a>
-      </li>
-      <li class="socials-nav-item">
-        <a href="https://www.linkedin.com/in/Manavi-Rawat/" target="_blank">
-          <span class="fa-linkedin"></span>
-        </a>
-      </li>
-    </ul>
-    <p>
-      Made with <span class="heart">&hearts;</span> by Manavi
-    </p>
-  </footer>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="job-title">Business Analyst</div>
+                        <div class="company-name">FedEx Ground (via Atos Syntel) – Dallas, TX</div>
+                        <div class="job-duration">July 2020 – May 2022</div>
+                        <ul class="job-achievements">
+                            <li>Automated analysis of 16K+ daily shipments, reducing manual reporting by 80%</li>
+                            <li>Improved delivery timelines by 10% with zero downtime</li>
+                            <li>Led team of 5 offshore QA analysts achieving 95%+ defect resolution</li>
+                            <li>Cut test cycle time by 30% through automation strategies</li>
+                        </ul>
+                    </div>
+                </div>
 
-  <!-- Scroll to Top Button -->
-  <button id="scrollTopBtn"><i class="fa fa-chevron-up"></i></button>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="job-title">Data Analyst Intern</div>
+                        <div class="company-name">Child Poverty Action Lab – Dallas, TX</div>
+                        <div class="job-duration">January 2020 – May 2020</div>
+                        <ul class="job-achievements">
+                            <li>Engineered poverty prediction model with 95% accuracy using 50+ demographic indicators</li>
+                            <li>Built interactive dashboards and KPIs to inform policy makers across 1,700+ census tracts</li>
+                            <li>Analyzed census data to identify key poverty indicators and guide funding allocation</li>
+                            <li>Collaborated with research team to develop targeted intervention strategies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script src="script.js"></script>
+    <!-- Skills Section -->
+    <section id="skills" class="section skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <p class="section-subtitle">
+                    Comprehensive technical and analytical capabilities across the data ecosystem
+                </p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">SAS</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">Excel</span>
+                        <span class="skill-tag">Alteryx</span>
+                        <span class="skill-tag">Visual Studio</span>
+                        <span class="skill-tag">Jira</span>
+                        <span class="skill-tag">Streamlit</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-pie"></i> Visualization & BI</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">DAX</span>
+                        <span class="skill-tag">Power Query</span>
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Data Visualization</span>
+                        <span class="skill-tag">Dashboard Design</span>
+                        <span class="skill-tag">Data Storytelling</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-cloud"></i> Cloud Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Snowflake</span>
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">GCP</span>
+                        <span class="skill-tag">Power Automate</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> Analytics & AI</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Statistical Modeling</span>
+                        <span class="skill-tag">Predictive Analytics</span>
+                        <span class="skill-tag">A/B Testing</span>
+                        <span class="skill-tag">Time Series Forecasting</span>
+                        <span class="skill-tag">Gen AI</span>
+                        <span class="skill-tag">Agentic AI</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-users"></i> Leadership & Business</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Team Leadership</span>
+                        <span class="skill-tag">Product Management</span>
+                        <span class="skill-tag">Stakeholder Management</span>
+                        <span class="skill-tag">Process Automation</span>
+                        <span class="skill-tag">Strategic Planning</span>
+                        <span class="skill-tag">Cross-functional Collaboration</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-certificate"></i> Certifications</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Alteryx Core</span>
+                        <span class="skill-tag">Tableau Visualization</span>
+                        <span class="skill-tag">SQL Certified</span>
+                        <span class="skill-tag">Scaled Agile Practitioner</span>
+                        <span class="skill-tag">Google GenAI</span>
+                        <span class="skill-tag">R Programming</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">
+                    Showcasing real-world applications of data science and analytics
+                </p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Stock Pricing Analysis using SAS</h3>
+                        <p class="project-description">
+                            Comprehensive analysis of stock market trends using advanced statistical methods 
+                            and time series forecasting to predict price movements and identify investment opportunities.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">SAS</span>
+                            <span class="tech-tag">Statistical Modeling</span>
+                            <span class="tech-tag">Time Series</span>
+                            <span class="tech-tag">Financial Analysis</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="project1.html" class="project-link primary">View Project</a>
+                            <a href="#" class="project-link secondary">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Loan Application Analysis with Python</h3>
+                        <p class="project-description">
+                            Machine learning model to assess loan approval probability using borrower characteristics 
+                            and financial history, helping financial institutions make data-driven lending decisions.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Credit Risk</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="project2.html" class="project-link primary">View Project</a>
+                            <a href="#" class="project-link secondary">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Fleet Risk & Fuel Efficiency Analytics</h3>
+                        <p class="project-description">
+                            Advanced analytics solution for fleet management optimization, analyzing driver behavior, 
+                            fuel consumption patterns, and safety metrics to reduce operational costs and risks.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Tableau</span>
+                            <span class="tech-tag">Risk Analysis</span>
+                            <span class="tech-tag">IoT Data</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="project3.html" class="project-link primary">View Project</a>
+                            <a href="#" class="project-link secondary">Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">COVID-19 AI Chatbot</h3>
+                        <p class="project-description">
+                            Intelligent chatbot leveraging natural language processing to provide accurate COVID-19 
+                            information, symptom assessment, and health guidance during the pandemic.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">Chatbot</span>
+                            <span class="tech-tag">Healthcare</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="project4.html" class="project-link primary">View Project</a>
+                            <a href="#" class="project-link secondary">Try Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Life Expectancy Analysis with Python</h3>
+                        <p class="project-description">
+                            Comprehensive analysis of global life expectancy trends using WHO data, identifying 
+                            key factors influencing longevity across different countries and demographics.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Data Visualization</span>
+                            <span class="tech-tag">Statistical Analysis</span>
+                            <span class="tech-tag">WHO Data</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="project5.html" class="project-link primary">View Project</a>
+                            <a href="#" class="project-link secondary">Notebook</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" style="color: white;">Let's Connect</h2>
+                <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.8);">
+                    Ready to transform your data into actionable insights? Let's discuss how we can work together.
+                </p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p><a href="mailto:manavi.rawat94@gmail.com">manavi.rawat94@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p><a href="tel:+16824140457">(682) 414-0457</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Dallas, TX</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Resume</h4>
+                            <p><a href="assets/Manavi_Rawat_Resume.pdf" download>Download PDF</a></p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/Manavi-Rawat/" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/Manavi09" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.instagram.com/manavirawatofficial" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@ManaviRawat" target="_blank" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.facebook.com/manavi09" target="_blank" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send me a message</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="your.email@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control" placeholder="What's this about?" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" class="form-control" placeholder="Tell me about your project or opportunity..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Manavi Rawat. Made with <i class="fas fa-heart" style="color: #e74c3c;"></i> and data.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scroll-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', function() {
+            const loading = document.getElementById('loading');
+            loading.classList.add('hidden');
+            setTimeout(() => {
+                loading.style.display = 'none';
+            }, 500);
+        });
+
+        // Navigation
+        const navbar = document.getElementById('navbar');
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Active nav link
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scroll-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Contact form
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Create mailto link
+            const mailtoLink = `mailto:manavi.rawat94@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            alert('Thank you for your message! Your email client should open with the message ready to send.');
+            
+            // Reset form
+            contactForm.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.timeline-content, .skill-category, .project-card, .highlight-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
