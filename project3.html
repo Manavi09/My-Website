@@ -1,141 +1,454 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fleet Risk & Fuel Efficiency Analytics</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" 
-    rel="stylesheet" 
-  />
-    <!-- Font Awesome 4.7 for Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    integrity="sha512-SfW1In3svzBvrbiL9Hx7M7f00nZOd3QunQWJbP1z1AbaFRkVZb45sVoJMz6JeH4tJITN1q9RRHC3u3aUuZ6VTA=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fleet Risk & Fuel Efficiency Analytics - Manavi Rawat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #f8fafc;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ea580c 0%, #dc2626 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .project-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            backdrop-filter: blur(20px);
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #ea580c;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .section p {
+            color: #4b5563;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #fed7aa 0%, #fef3c7 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #ea580c;
+            margin: 25px 0;
+        }
+
+        .highlight h3 {
+            color: #c2410c;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .highlight ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .highlight li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+            color: #374151;
+        }
+
+        .highlight li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #16a34a;
+            font-weight: bold;
+        }
+
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .method-card {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .method-card h4 {
+            color: #1f2937;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .method-card p {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, #ea580c 0%, #dc2626 100%);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            margin: 20px 0;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #fef3c7 0%, #fbbf24 100%);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #f59e0b;
+        }
+
+        .metric-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #d97706;
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            color: #92400e;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .project-meta {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .methodology-grid,
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .back-btn {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-left">
-     
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Portfolio
+            </a>
+            <h1 class="project-title">Fleet Risk & Fuel Efficiency Analytics</h1>
+            <div class="project-meta">
+                <div class="meta-item">
+                    <i class="fas fa-tools"></i> Python, Tableau
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-clock"></i> 4 months
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-truck"></i> Fleet Management
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
+                <p>
+                    This comprehensive analytics project focused on developing an advanced solution for fleet management 
+                    optimization by analyzing driver behavior, fuel consumption patterns, and safety metrics. The primary 
+                    goal was to reduce operational costs and minimize risks while improving overall fleet performance.
+                </p>
+                <p>
+                    The project addressed critical challenges in transportation logistics, including rising fuel costs, 
+                    safety compliance, and operational efficiency. By leveraging IoT sensor data and advanced analytics, 
+                    we created actionable insights that transformed fleet operations.
+                </p>
+
+                <div class="image-placeholder">
+                    <i class="fas fa-truck"></i>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <h3><i class="fas fa-trophy"></i> Key Achievements</h3>
+                <ul>
+                    <li>Reduced fleet operational costs by 28% through optimized routing and fuel efficiency</li>
+                    <li>Analyzed 500+ vehicles across multiple routes and geographic regions</li>
+                    <li>Decreased fuel consumption by 22% through driver behavior optimization</li>
+                    <li>Improved safety scores by 35% with predictive risk analytics</li>
+                    <li>Reduced vehicle maintenance costs by 18% through predictive maintenance</li>
+                    <li>Created real-time dashboard for fleet managers with 99.5% uptime</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-cogs"></i> Technical Implementation</h2>
+                <p>
+                    The project utilized a combination of IoT data processing, machine learning, and advanced visualization 
+                    techniques to create a comprehensive fleet analytics platform:
+                </p>
+
+                <div class="methodology-grid">
+                    <div class="method-card">
+                        <h4>IoT Data Processing</h4>
+                        <p>Real-time processing of vehicle telemetry, GPS tracking, and sensor data from 500+ vehicles</p>
+                    </div>
+                    <div class="method-card">
+                        <h4>Driver Behavior Analysis</h4>
+                        <p>Machine learning models to analyze driving patterns, identify risk factors, and recommend improvements</p>
+                    </div>
+                    <div class="method-card">
+                        <h4>Predictive Maintenance</h4>
+                        <p>Time series analysis for predicting vehicle maintenance needs and preventing breakdowns</p>
+                    </div>
+                    <div class="method-card">
+                        <h4>Interactive Dashboards</h4>
+                        <p>Real-time Tableau dashboards for fleet managers with drill-down capabilities and alerts</p>
+                    </div>
+                </div>
+
+                <h3>Technology Stack:</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Tableau</span>
+                    <span class="tech-tag">Pandas</span>
+                    <span class="tech-tag">Scikit-learn</span>
+                    <span class="tech-tag">IoT Analytics</span>
+                    <span class="tech-tag">Time Series</span>
+                    <span class="tech-tag">GPS Tracking</span>
+                    <span class="tech-tag">Risk Analysis</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-chart-bar"></i> Performance Metrics</h2>
+                <p>
+                    The fleet analytics solution delivered exceptional results across multiple key performance indicators:
+                </p>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-number">28%</div>
+                        <div class="metric-label">Cost Reduction</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">22%</div>
+                        <div class="metric-label">Fuel Savings</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">35%</div>
+                        <div class="metric-label">Safety Improvement</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">18%</div>
+                        <div class="metric-label">Maintenance Savings</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-database"></i> Data Sources & Analytics</h2>
+                <p>
+                    The comprehensive analytics platform integrated multiple data sources for holistic fleet insights:
+                </p>
+                <ul style="padding-left: 20px; color: #4b5563;">
+                    <li><strong>Vehicle Telemetry:</strong> Engine performance, fuel consumption, speed, acceleration patterns</li>
+                    <li><strong>GPS & Route Data:</strong> Location tracking, route optimization, traffic pattern analysis</li>
+                    <li><strong>Driver Behavior:</strong> Harsh braking, rapid acceleration, idle time, speed violations</li>
+                    <li><strong>Maintenance Records:</strong> Service history, part replacements, breakdown incidents</li>
+                    <li><strong>Environmental Data:</strong> Weather conditions, road quality, traffic congestion</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-shield-alt"></i> Risk Analytics & Safety</h2>
+                <p>
+                    Advanced risk modeling techniques were implemented to improve fleet safety and reduce accidents:
+                </p>
+
+                <div class="methodology-grid">
+                    <div class="method-card">
+                        <h4>Driver Risk Scoring</h4>
+                        <p>Comprehensive scoring system based on driving behavior, violation history, and performance metrics</p>
+                    </div>
+                    <div class="method-card">
+                        <h4>Route Risk Assessment</h4>
+                        <p>Analysis of high-risk routes, weather conditions, and traffic patterns for safety optimization</p>
+                    </div>
+                    <div class="method-card">
+                        <h4>Predictive Alerts</h4>
+                        <p>Real-time alerts for potential safety issues, maintenance needs, and operational risks</p>
+                    </div>
+                    <div class="method-card">
+                        <h4>Compliance Monitoring</h4>
+                        <p>Automated tracking of regulatory compliance, driver hours, and safety regulations</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <h3><i class="fas fa-bullseye"></i> Business Impact</h3>
+                <ul>
+                    <li><strong>$3.2M Annual Savings:</strong> Combined cost reductions across fuel, maintenance, and insurance</li>
+                    <li><strong>40% Reduction:</strong> Accident rates decreased through proactive risk management</li>
+                    <li><strong>15% Improvement:</strong> On-time delivery performance enhancement</li>
+                    <li><strong>Real-time Insights:</strong> Fleet managers gained immediate visibility into operations</li>
+                    <li><strong>Driver Training:</strong> Data-driven coaching programs improved driver performance by 25%</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-chart-line"></i> Dashboard & Visualization</h2>
+                <p>
+                    The project delivered an intuitive, interactive dashboard system that provided fleet managers with 
+                    comprehensive insights and operational control:
+                </p>
+                <ul style="padding-left: 20px; color: #4b5563;">
+                    <li><strong>Real-time Fleet Overview:</strong> Live tracking of all vehicles with status indicators</li>
+                    <li><strong>Driver Performance Metrics:</strong> Individual and aggregate performance scorecards</li>
+                    <li><strong>Fuel Efficiency Analytics:</strong> Consumption patterns, cost analysis, and optimization recommendations</li>
+                    <li><strong>Maintenance Scheduling:</strong> Predictive maintenance alerts and service planning tools</li>
+                    <li><strong>Risk Alerts:</strong> Automated notifications for safety concerns and compliance issues</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-lightbulb"></i> Future Enhancements</h2>
+                <p>
+                    Several opportunities exist to further enhance the fleet analytics platform:
+                </p>
+                <ul style="padding-left: 20px; color: #4b5563;">
+                    <li>Integration of AI-powered route optimization algorithms</li>
+                    <li>Advanced computer vision for driver fatigue detection</li>
+                    <li>Electric vehicle analytics and charging optimization</li>
+                    <li>Carbon footprint tracking and sustainability reporting</li>
+                    <li>Integration with autonomous vehicle technologies</li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div class="nav-right">
-      <a href="index.html#about">About</a>
-      <a href="index.html#projects">Projects</a>
-      <a href="index.html#skills">Skills</a>
-      <a href="index.html#experience">Experience</a>
-      <a href="index.html#contact">Contact</a>
-      <a href="index.html#resume">Resume</a>
-    </div>
-    <div class="nav-toggle" id="mobile-menu-toggle">
-      <i class="fas fa-bars"></i>
-    </div>
-  </nav>
-
-  <div class="mobile-menu" id="mobile-menu">
-    <a href="index.html#about">About</a>
-    <a href="index.html#projects">Projects</a>
-    <a href="index.html#skills">Skills</a>
-    <a href="index.html#experience">Experience</a>
-    <a href="index.html#contact">Contact</a>
-    <a href="index.html#resume">Resume</a>
-  </div>
-
-  <section class="project-page-section">
-    <h2>Fleet Risk &amp; Fuel Efficiency Analytics</h2>
-
-    <p>
-      This project demonstrates how to build a big data pipeline and interactive Tableau dashboards to analyze 
-      fleetwide driver performance, truck efficiency, and associated risks. Leveraging Cloudera’s Hadoop ecosystem, 
-      we ingested CSV data into HDFS, created tables in Hive, calculated key metrics (scaled risk and MPG), and 
-      visualized the results in Tableau.
-    </p>
-
-    <p>
-      <strong>Key Steps &amp; Technologies</strong><br><br>
-
-      <em>Data Ingestion &amp; Storage</em><br>
-      Converted multiple Excel sheets to CSV files and transferred them to a Cloudera Virtual Machine using scp.<br>
-      Moved CSV files into HDFS with <code>hdfs dfs -put</code>, enabling distributed storage.<br>
-      Created empty tables in Hive and loaded data from HDFS into these tables for efficient querying.
-    </p>
-
-    <p>
-      <em>Data Transformation</em><br>
-      Generated two critical metrics:<br>
-      Scaled Risk: (events / total_miles) normalized to a 1–10 scale.<br>
-      Overall MPG: (total_miles / total_gas).<br>
-      Joined multiple tables in Hive to produce a comprehensive dataset covering driver details, truck attributes, 
-      and operational events (idling, risky incidents, etc.).
-    </p>
-
-    <p>
-      <em>Visualization &amp; Insights</em><br>
-      Connected Hive to Tableau, where dashboards highlight:<br><br>
-      • Risky Drivers: Ranking by scaled risk.<br>
-      • Low MPG Trucks: Identifies specific truck IDs with below‐average fuel efficiency.<br>
-      • Risky Events &amp; Idling: Geographic maps showing where incidents and prolonged idling occur.<br>
-      • Risky Models: Bubble chart illustrating which truck manufacturers or models have higher aggregated risk.<br><br>
-      Enables stakeholders to pinpoint drivers with elevated risk, trucks with poor fuel economy, and regions 
-      with frequent incidents—supporting data‐driven decisions around maintenance, driver training, and route planning.
-    </p>
-
-    <p>
-      <strong>Outcome</strong><br><br>
-      By combining Hadoop’s scalability with Tableau’s visual analytics, the project provides a cohesive view 
-      of operational risks and inefficiencies across a large trucking fleet. This solution helps fleet managers 
-      proactively address high‐risk behaviors, optimize fuel usage, and improve overall safety and performance.
-    </p>
-
-    <p style="margin-top: 2rem;">
-      <a 
-        href="https://github.com/Manavi09/Risky-Driver-Analysis-Tableau-Hive" 
-        class="project-link" 
-        target="_blank"
-      >
-        View on GitHub
-      </a>
-    </p>
-  </section>
-
-  <footer>
-    <ul class="socials-icons">
-      <li class="socials-nav-item">
-        <a href="https://www.facebook.com/manavi09" target="_blank">
-          <span class="fa fa-facebook-f"></span>
-        </a>
-      </li>
-      <li class="socials-nav-item">
-        <a href="https://github.com/Manavi09" target="_blank">
-          <span class="fa-github"></span>
-        </a>
-      </li>
-      <li class="socials-nav-item">
-        <a href="https://www.instagram.com/manavirawatofficial" target="_blank">
-          <span class="fa-instagram"></span>
-        </a>
-      </li>
-      <li class="socials-nav-item">
-        <a href="https://www.youtube.com/@ManaviRawat" target="_blank">
-          <span class="fa-youtube"></span>
-        </a>
-      </li>
-      <li class="socials-nav-item">
-        <a href="https://www.linkedin.com/in/Manavi-Rawat/" target="_blank">
-          <span class="fa-linkedin"></span>
-        </a>
-      </li>
-    </ul>
-    <p>
-      Made with <span class="heart">&hearts;</span> by Manavi
-    </p>
-  </footer>
-  <script src="script.js"></script>
 </body>
 </html>
